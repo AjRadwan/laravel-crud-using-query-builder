@@ -2,9 +2,13 @@
 @section('title', 'Home')
 
 @section('content')
-
-
 <div class="container my-5">
+ @if (session()->has('msg'))
+ <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>{{session('msg')}} </strong> 
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>  
+ @endif  
 <table class="table table-dark table-striped">
     <thead>
         <tr>
@@ -32,7 +36,5 @@
     </table>
 
 </div>
-
-
 @endsection
 

@@ -17,12 +17,17 @@ class StudentController extends Controller
             'roll' => $request->roll,
             'address' => $request->address,        
         ]);
-        return redirect(route('index'));
+        return redirect(route('index'))->with('msg', 'Student Addedd Successfully!!');
 
     }
 
     public function show(){
         return view('addStudent');
     }
- 
+
+
+    public function edit($id){
+       $student = DB::get('student')->find($id);
+       return view('editStudent', ['student' => $student]);
+    }
 }
