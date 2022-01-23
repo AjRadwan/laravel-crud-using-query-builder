@@ -7,19 +7,22 @@ use Illuminate\Http\Request;
 class StudentController extends Controller
 {
     public function index(){
-        return view('index');
+        $student = DB::table('student')->get();
+        return view('index', ['students' => $student]);
     }
 
     public function create(Request $request){
         DB::table('student')->insert([
             'name' => $request->name,
-              'city' => $request->city,
-              'address' => $request->address,
+            'roll' => $request->roll,
+            'address' => $request->address,        
         ]);
+        return redirect(route('index'));
 
     }
 
     public function show(){
         return view('addStudent');
     }
+ 
 }
