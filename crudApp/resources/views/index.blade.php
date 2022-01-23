@@ -27,7 +27,8 @@
         <td>{{$student->roll}}</td>
         <td>{{$student->address}}</td>
         <td>
-            <button type="button" class="btn btn-primary">Edit</button>
+     
+            <a href="{{url('edit', $student->id)}}" class="btn btn-primary">Edit</a>
             <button type="button" class="btn btn-danger">Delete</button>
         </td>
         </tr>
