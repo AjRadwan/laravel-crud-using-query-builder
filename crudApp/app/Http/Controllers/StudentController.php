@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class StudentController extends Controller
 {
     public function index(){
-        $student = DB::table('student')->get();
+        $student = DB::table('student')->paginate(5);
         return view('index', ['students' => $student]);
     }
 
