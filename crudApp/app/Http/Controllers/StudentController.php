@@ -1,9 +1,8 @@
 <?php
-
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use PhpParser\Node\Expr\FuncCall;
+
 
 class StudentController extends Controller
 {
@@ -13,6 +12,8 @@ class StudentController extends Controller
     }
 
     public function create(Request $request){
+   
+
         DB::table('student')->insert([
             'name' => $request->name,
             'roll' => $request->roll,
@@ -41,5 +42,10 @@ class StudentController extends Controller
             ]);
      return redirect(route('index'))->with('msg', 'Data Updated Successfully!!');
     }   
+
+    public function destroy($id) {
+        DB::table('student')->where('id', $id)->delete();
+     return redirect(route('index'))->with('msg', 'Data Deleted Successfully!!');
+    }
 }
 

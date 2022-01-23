@@ -28,14 +28,15 @@
         <td>{{$student->address}}</td>
         <td>
      
-            <a href="{{url('edit', $student->id)}}" class="btn btn-primary">Edit</a>
-            <button type="button" class="btn btn-danger">Delete</button>
+    <a href="{{url('edit', $student->id)}}" class="btn btn-primary">Edit</a>
+    <a onclick="return confirm('Are you sure you want to delete this?')" 
+        href="{{url('delete', $student->id)}}" class="btn btn-danger">Delete</a>
+            
         </td>
         </tr>
         @endforeach
     </tbody>
     </table>
-
 </div>
 @endsection
 
